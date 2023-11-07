@@ -1,0 +1,46 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+
+<h3 class="text-center my-3">
+    Welcome {{ current_user.name }} to your Cart</h3>
+
+<h2>My Cart</h2>
+
+{% if cart_details %}
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Product</th>
+                <th scope="col">Category</th>
+                <th scope="col">Quantity</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for cart_detail in cart_details %}
+                <tr>
+                    <th scope="row">{{ cart_detail.id }}</th>
+                    <td>{{ cart_detail['product_name'] }}</td>
+                    <td>{{ cart_detail['category_name'] }}</td>
+                    <td>{{ cart_detail.quantity }}</td>
+                    <td>
+                        <form action="{{ url_for('delete_cart', cart_id=cart_detail.id) }}" method="POST">
+                            <button class="btn btn-danger" type="submit">Delete</button>
+                        </form>
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% else %}
+    <p>No cart found!</p>
+{% endif %}
+<br>  
+<a href="{{ url_for('create_cart') }}">Add</a>
+<br>
+<a href="{{ url_for('home') }}">Back to Home Page</a>
+<br>
+{% endblock content %} 

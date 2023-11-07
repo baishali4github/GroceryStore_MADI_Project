@@ -1,0 +1,28 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+
+
+   <h3><b>Create Product</b></h3>
+   <br>
+
+   <div class="shadow-sm p-3 mb-5 bg-body rounded">
+    <form method="POST" action="#">
+        {{ form.hidden_tag() }}
+        {{ form.name.label(class="form-label") }}     
+        {{ form.name(class="form-control") }}
+        {{ form.unit.label(class="form-label") }}     
+        {{ form.unit(class="form-control") }}
+        {{ form.price.label(class="form-label") }}     
+        {{ form.price(class="form-control", type="number", step="1") }}
+        {{ form.quantity.label(class="form-label") }}     
+        {{ form.quantity(class="form-control", type="number", step="1") }}
+        {{ form.category.label(class="form-control-label") }}
+        {{ form.category(class="form-control") }}
+       <br>
+      <button type="submit" class="btn btn-primary">Save</button>
+    </form>
+  </div>
+
+{% endblock content %}

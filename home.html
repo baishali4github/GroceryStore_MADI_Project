@@ -1,0 +1,52 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+    
+    <h3 class="text-center my-3">
+        Welcome to Grocery Store {{ current_user.name }}
+    </h3>
+    <hr>
+    <h4>
+        Explore Products and categories at GroceryStore
+    </h4>  
+    <div class="mt-5">
+        <h2 class="mb-4">Category</h2>
+        <div class="row">
+            {% for category in categories %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title">{{ category.name }}</h4>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url_for('categories', category_id=category.id) }}" class="btn btn-primary">View Category</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    <div class="mt-5">
+        <h2 class="mb-4">Product</h2>
+        <div class="row">
+            {% for product in products %}
+                <div class="col-lg-4 col-md-6 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h4 class="card-title" >{{ product.category.name}}</h4>
+                            <h5 class="card-title">{{ product.name}}</h5>
+                            <p class="card-text">{{ product.price }}/ {{ product.unit }}</p>
+                        </div>
+                        <div class="card-footer">
+                            <a href="{{ url_for('products', product_id=product.id) }}" class="btn btn-primary">View Product</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+    
+   
+
+    
+{% endblock content %}

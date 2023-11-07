@@ -1,0 +1,41 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+<h1 class="text-center my-3">
+  Category</h1>
+ <hr> </br>
+  
+  <table class="table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th> Category Name</th>
+          {% if current_user.username == "bd12" %}
+          <th>Edit/ Delete Option</th>
+          {% endif %}
+        </tr>
+      </thead>
+      <tbody>
+          {% for category in categories %}
+        <tr>
+          <td>{{ category.id }}</td>
+          <td>{{ category.name }}</td>
+          <td>
+            {% if current_user.username == "bd12" %}
+            <a href="{{ url_for('edit_category', id=category.id) }}" class="btn btn-secondary">Edit</a>
+            <a href="{{url_for('delete_category', id=category.id)}}" class="btn btn-danger" >Delete</a>
+            {% endif %}
+          </td>
+        </tr>
+          {% endfor %}
+      </tbody>
+  </table>
+    <br>
+    <a href="{{ url_for('home') }}">Home</a>
+    <br>
+    {% if current_user.username == "bd12" %}
+    <a href="{{ url_for('admin_dashboard') }}">Back</a>  
+    {% endif %}
+
+{% endblock content %}

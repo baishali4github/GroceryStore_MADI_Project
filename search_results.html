@@ -1,0 +1,56 @@
+{% extends 'nav.html' %}
+
+{% block content %}
+
+    <h1>Search Results</h1>
+    
+    <h2>Products</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Product Name</th>
+                <th>Unit</th>
+                <th>Product Price/Unit</th>
+                <th>Category Name</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
+                <tr>
+                    <td>{{ product.id }}</td>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.unit }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>{{ product.category.name }}</td>
+                    <td>
+                      <a href="{{ url_for('create_cart') }}">Add
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Categories</h2>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Category Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for category in categories %}
+                <tr>
+                    <td>{{ category.id }}</td>
+                    <td>{{ category.name }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+<br>
+<a href="{{ url_for('home') }}">Back to Home Page</a>
+<br>
+
+{% endblock content %}

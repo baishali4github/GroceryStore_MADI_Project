@@ -1,0 +1,25 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-3 mx-auto">
+      <div class="card">
+        <div class="card-body" style="background-color: #7a9eb8;">
+            <h3>User LogIn</h3>
+          <a href="{{url_for('user_login')}}" class="card-link text-white">LogIn</a>
+          <a href="{{url_for('signup')}}" class="card-link text-white">SignUp</a>
+        </div>
+      </div>
+    </div>
+    <div class="col-sm-3 mx-auto">
+      <div class="card">
+        <div class="card-body" style="background-color: #7a9eb8;" >
+            <h3>Admin LogIn</h3>
+          <a href="{{url_for('admin_login')}}" class="card-link text-white">LogIn</a>
+        </div>
+      </div>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+body{
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif ;
+    border: 3px solid rgba(255, 254, 254, 0.979);
+}
+form{
+    width:25rem;
+    margin: auto;
+    color:rgb(20, 18, 18);
+}
+    
+    
+h2{
+    text-align: center;
+
+}
+
+
+ input[type=text], input[type=password]{
+    width: 100%;
+    padding: 14px 18px;
+    margin: 10px 0;
+    display: inline-block;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+ }
+    
+
+p {
+    text-align: center;
+}      
